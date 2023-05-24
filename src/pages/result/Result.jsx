@@ -29,7 +29,7 @@ const Result = () => {
         style={{
           fontSize: "1.4rem",
           fontWeight: "900",
-          marginRight: "5rem",
+          marginRight: "3rem",
         }}
       >
         الصورة الخاصة بمحصولك
@@ -38,7 +38,7 @@ const Result = () => {
         <div className="issue-info">
           <div className="issue-details">
             <LabelElement>{label}</LabelElement>
-            <DetailsWrapper>
+            <DetailsWrapper output={formState.output}>
               {information.map((el, index) => {
                 return <p key={index}>{el}</p>;
               })}
@@ -77,17 +77,16 @@ const Wrapper = styled.div`
     flex-wrap: wrap;
   }
   .content .issue-info {
-    flex: 2 1;
+    flex: 2 1 20%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
     gap: 12px;
     font-weight: bold;
     font-family: "Almarai", sans-serif;
   }
   .issue-info .issue-details {
-    padding: 64px 16px 32px 16px;
+    padding: 50px 16px 32px 16px;
     background-color: white;
     border-radius: 40px 0 40px 40px;
     position: relative;
@@ -109,11 +108,11 @@ const Wrapper = styled.div`
 `;
 const DetailsWrapper = styled.div`
   & > * + * {
-    margin-top: 12px;
+    margin-top: ${(props) => (props.output === 0 ? 0.725 + "em" : 0.35 + "em")};
   }
   p {
     font: inherit;
-    font-size: 0.8rem;
+    font-size: clamp(0.7rem, 0.9rem, 1rem);
     text-align: right;
   }
 `;
@@ -136,8 +135,6 @@ const ResultElement = styled.div`
   position: absolute;
   left: 0;
   bottom: ${(props) => props.height * -1 + "px"};
-  /* left: ${(props) => props.width + "px"};  */
-  /* transform: translate(-50%, -50%); */
   width: 100%;
 
   h3 {
@@ -145,7 +142,7 @@ const ResultElement = styled.div`
     color: white;
     width: fit-content;
     margin-inline: auto;
-    padding: 16px 32px;
+    padding: 8px 32px;
     border-radius: 0px 0px 25px 25px;
     font-weight: bold;
     font-family: "Almarai", sans-serif;
@@ -156,7 +153,7 @@ const ResultElement = styled.div`
 const LabelElement = styled.div`
   background-color: #243e86;
   color: white;
-  padding: 16px 32px;
+  padding: 8px 32px;
   position: absolute;
   top: 0;
   right: 0;
