@@ -39,29 +39,25 @@ const Layout = () => {
 export default Layout;
 
 const Wrapper = styled.section`
-  height: 100vh;
-  width: 100%;
+  height: 100dvh;
   background-image: url(${HeroBackground});
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-weight: bold;
+  font-family: "El Messiri", sans-serif;
+  padding: 40px;
   .hero {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-    flex-basis: 92%;
     padding: 16px;
-    height: 90%;
     border-radius: 50px;
     background: linear-gradient(
       var(--hero-color-secondary),
       var(--hero-color-secondary)
     );
+    height: 100%;
   }
   header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
   }
   nav ul {
     display: flex;
@@ -75,5 +71,4 @@ const Wrapper = styled.section`
   .img-wrapper {
     width: 100px;
   }
- 
 `;

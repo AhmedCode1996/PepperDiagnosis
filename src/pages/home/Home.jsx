@@ -52,7 +52,7 @@ const Home = () => {
 
   return (
     <Wrapper className="form-container">
-      <h3>من فضلك ارفع صورة ورقة المحصول</h3>
+      <h3 style={{ marginBlock: "2.5rem" }}>من فضلك ارفع صورة ورقة المحصول</h3>
       <form className="form">
         <h2 className="form-heading">ارفع الصورة من هنا</h2>
         <div className="main-form">

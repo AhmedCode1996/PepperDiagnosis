@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { useGlobalContext } from "../../globalData";
-import Image from "../../assets/download.jpeg";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 const Result = () => {
+  const resultRef = useRef();
+  const [resultHeight, setResultHeight] = useState(0);
+  const [resultWidth, setResultWidth] = useState(0);
+  const navigate = useNavigate();
   const { formState } = useGlobalContext();
   const result =
     formState.output === 0 ? "ثمرة الفلفل مصابة" : "ثمرة الفلفل غير مصابة";
@@ -10,9 +17,23 @@ const Result = () => {
       ? formState.scanContent.infected
       : formState.scanContent.nonInfected;
   const label = formState.output === 0 ? "ماهى أسباب الأمراض" : "تتصرف إزاى";
+  useEffect(() => {
+    console.log(resultRef.current.getBoundingClientRect());
+
+    setResultHeight(resultRef.current.getBoundingClientRect().height);
+    setResultWidth(resultRef.current.getBoundingClientRect().width);
+  }, []);
   return (
     <Wrapper>
-      <h2 style={{ textAlign: "right" }}>الصورة الخاصة بمحصولك</h2>
+      <h2
+        style={{
+          fontSize: "1.4rem",
+          fontWeight: "900",
+          marginRight: "5rem",
+        }}
+      >
+        الصورة الخاصة بمحصولك
+      </h2>
       <div className="content">
         <div className="issue-info">
           <div className="issue-details">
@@ -23,12 +44,18 @@ const Result = () => {
               })}
             </DetailsWrapper>
           </div>
-          <button>افحص من جديد</button>
+          <button onClick={() => navigate("/")}>افحص من جديد</button>
         </div>
         <div className="issue-image">
-          <ImageWrapper result={result}>
-            <img src={Image} alt="Pepper" />
-            <ResultElement>{result}</ResultElement>
+          <ImageWrapper>
+            <img src={formState.url} alt="Pepper" />
+            <ResultElement
+              ref={resultRef}
+              width={resultWidth}
+              height={resultHeight}
+            >
+              <h3> {result}</h3>
+            </ResultElement>
           </ImageWrapper>
         </div>
       </div>
@@ -39,19 +66,22 @@ const Result = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: flex-end;
 
+  gap: 12px;
+  font-weight: bold;
+  font-family: "El Messiri", sans-serif;
   .content {
     display: flex;
     justify-content: space-between;
-    gap: 12px;
+    flex-wrap: wrap;
   }
   .content .issue-info {
-    flex: 2;
+    flex: 2 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 12px;
     font-weight: bold;
     font-family: "Almarai", sans-serif;
@@ -73,41 +103,54 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
   .content .issue-image {
-    flex: 1;
+    flex: 1 1;
+    position: relative;
   }
 `;
 const DetailsWrapper = styled.div`
-  text-align: right;
+  & > * + * {
+    margin-top: 12px;
+  }
   p {
     font: inherit;
     font-size: 0.8rem;
-  }
-
-  & > * + * {
-    margin-top: 12px;
+    text-align: right;
   }
 `;
 const ImageWrapper = styled.div`
   padding: 16px;
   background-color: #ebd8b7;
   border-radius: 24px;
+  width: fit-content;
+  margin-inline: auto;
   position: relative;
 
   & img {
-    max-width: 100%;
+    width: 16rem;
+    height: 16rem;
     border-radius: 24px;
+    margin-inline: auto;
   }
 `;
 const ResultElement = styled.div`
   position: absolute;
-  bottom: -14.5%;
-  left: 25%;
-  background-color: #243e86;
-  color: white;
-  padding: 16px 32px;
-  border-radius: 0px 0px 25px 25px;
-  font-weight: bold;
-  font-family: "Almarai", sans-serif;
+  left: 0;
+  bottom: ${(props) => props.height * -1 + "px"};
+  /* left: ${(props) => props.width + "px"};  */
+  /* transform: translate(-50%, -50%); */
+  width: 100%;
+
+  h3 {
+    background-color: #243e86;
+    color: white;
+    width: fit-content;
+    margin-inline: auto;
+    padding: 16px 32px;
+    border-radius: 0px 0px 25px 25px;
+    font-weight: bold;
+    font-family: "Almarai", sans-serif;
+    font-size: 1rem;
+  }
 `;
 
 const LabelElement = styled.div`
