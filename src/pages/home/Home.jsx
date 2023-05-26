@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useGlobalContext } from "../../globalData";
 import upload from "../../assets/upload.png";
+import checkMark from "../../assets/127266-checkmark.gif";
 import uploadBtn from "./../../assets/upload button.png";
+import loading from "../../assets/97952-loading-animation-blue.gif";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const URL = "https://pepper-true.herokuapp.com/";
 
 const Home = () => {
@@ -14,6 +17,12 @@ const Home = () => {
   const imageHandler = (e) => {
     const selectedFile = e.target.files[0];
     setPicture(selectedFile);
+    toast.success("تم إضافة الصورة", {
+      className: "custom-style",
+      icon: ({ theme, type }) => (
+        <img style={{ width: "4rem" }} src={checkMark} alt="check mark" />
+      ),
+    });
   };
 
   const uploadHandler = async (event) => {
@@ -38,7 +47,15 @@ const Home = () => {
               output: data.output,
             };
           });
-          navigate("/result");
+          toast.success("جارى فحص الصورة", {
+            className: "custom-style",
+            icon: ({ theme, type }) => (
+              <img style={{ width: "4rem" }} src={loading} alt="check mark" />
+            ),
+          });
+          setTimeout(() => {
+            navigate("/result");
+          }, 3000);
         } else {
           console.log(response);
           console.log(picture);

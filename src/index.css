@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900;1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=El+Messiri:wght@500;600;700&family=Lalezar&family=Tajawal:wght@400;500;700;800;900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Harmattan:wght@400;500;600;700&family=Marhey:wght@400;500;600;700&display=swap');
 /* 
   font-family: 'Almarai', sans-serif;
 font-family: 'El Messiri', sans-serif;
 font-family: 'Lalezar', cursive;
 font-family: 'Tajawal', sans-serif;
-
+font-family: 'Harmattan', sans-serif;
+font-family: 'Marhey', cursive;
 */
 
 *,
@@ -30,8 +31,8 @@ html {
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 2.652rem;
   --font-size-4xl: 4rem;
-  --hero-color-primary: #DEB87A;
-  --hero-color-secondary: #E7CC92;
+  --hero-color-primary: #deb87a;
+  --hero-color-secondary: #e7cc92;
 }
 body {
   line-height: 1.5;
@@ -68,4 +69,16 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.custom-style {
+  font-size: 1.5rem;
+}
+
+.custom-style > div:first-child {
+  gap: 40px;
+  font-family: 'Harmattan', sans-serif;
+  font-family: 'Marhey', cursive;
+  font-size: 1.2rem;
+  
 }
