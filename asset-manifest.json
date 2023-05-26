@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/PepperDiagnosis/static/css/main.eea37a7d.css",
+    "main.js": "/PepperDiagnosis/static/js/main.cb9d5bd5.js",
+    "static/media/97952-loading-animation-blue.gif": "/PepperDiagnosis/static/media/97952-loading-animation-blue.d754d9f77e7cd2398537.gif",
+    "static/media/127266-checkmark.gif": "/PepperDiagnosis/static/media/127266-checkmark.6b659c7f225d333093f1.gif",
+    "static/media/patternFill.png": "/PepperDiagnosis/static/media/patternFill.00be34357fe0e9d89703.png",
+    "static/media/bell-pepper.png": "/PepperDiagnosis/static/media/bell-pepper.79c15f698d577b195ce9.png",
+    "index.html": "/PepperDiagnosis/index.html",
+    "main.eea37a7d.css.map": "/PepperDiagnosis/static/css/main.eea37a7d.css.map",
+    "main.cb9d5bd5.js.map": "/PepperDiagnosis/static/js/main.cb9d5bd5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eea37a7d.css",
+    "static/js/main.cb9d5bd5.js"
+  ]
+}
