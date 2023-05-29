@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900;1000&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=El+Messiri:wght@500;600;700&family=Lalezar&family=Tajawal:wght@400;500;700;800;900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Harmattan:wght@400;500;600;700&family=Marhey:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Harmattan:wght@400;500;600;700&family=Marhey:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900;1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=El+Messiri:wght@500;600;700&family=Lalezar&family=Tajawal:wght@400;500;700;800;900&display=swap");
+
 /* 
   font-family: 'Almarai', sans-serif;
 font-family: 'El Messiri', sans-serif;
@@ -77,8 +80,7 @@ a {
 
 .custom-style > div:first-child {
   gap: 40px;
-  font-family: 'Harmattan', sans-serif;
-  font-family: 'Marhey', cursive;
+  font-family: "Harmattan", sans-serif;
+  font-family: "Marhey", cursive;
   font-size: 1.2rem;
-  
 }

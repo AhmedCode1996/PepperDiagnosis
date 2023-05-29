@@ -58,6 +58,14 @@ const Wrapper = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 12px;
+
+    @media (min-width: 1100px) {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 1400px) {
+      margin-bottom: 8rem;
+    }
   }
   nav ul {
     display: flex;

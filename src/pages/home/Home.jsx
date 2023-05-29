@@ -132,6 +132,8 @@ const Wrapper = styled.div`
       border: none;
       color: white;
       font-weight: bold;
+      cursor: pointer;
+      width: 100%;
     }
   }
   .main-form {
